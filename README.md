@@ -12,3 +12,5 @@ insert into city_#[country]#(name,state,country) values(#{name},#{state},#{count
 ```sql
 insert into city_china(name,state,country) values(?,?,?)
 ```
+//TODO
+优化：对被拦截的target的类缓存是否需要做拦截处理
