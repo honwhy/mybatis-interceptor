@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.honwhy.mybatisinterceptor.CityMapper">
+    <select id="selectCityById" resultType="com.github.honwhy.mybatisinterceptor.City">
+        select * from city_china where id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.github.honwhy.mybatisinterceptor.City">
+        insert into city(name, state, country)
+        values(
+        #{name},
+        #{state},
+        #{country}
+
+        )
+    </insert>
+    <insert id="insertCityDynamic">
+        insert into city_#[country]#(name, state, country)
+        values(
+        #{city.name},
+        #{city.state},
+        #{city.country}
+        )
+    </insert>
+</mapper>
